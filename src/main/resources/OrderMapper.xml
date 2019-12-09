@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhucongqi.mapper.OrderMapper">
+
+    <resultMap id="UserOrder" type="userOrder">
+        <id column="uid" property="uid"/>
+        <collection property="orders" ofType="mallOrder">
+            <id column="id" property="id"/>
+            <result column="uid" property="uid"/>
+            <result property="date" column="date"/>
+            <result property="descr" column="descr"/>
+        </collection>
+    </resultMap>
+
+    <insert id="addOrder" parameterType="mallOrder">
+        insert into mallorder (id, uid, date, descr)
+        values (#{id}, #{uid}, #{date}, #{descr})
+    </insert>
+
+    <select id="getOrderByUserId" resultMap="UserOrder">
+        select o.id, o.date, o.descr, u.id uid from mallorder o, user u where u.id = o.uid and u.id = #{id, jdbcType=INTEGER}
+    </select>
+    <select id="getOrderByUserId2" resultMap="UserOrder">
+        select o.id, o.date, o.descr, u.id uid from mallorder o, user u where u.id = o.uid and u.id = #{id, jdbcType=INTEGER}
+    </select>
+    <select id="mallOrders" resultType="mallOrder">
+        select  * from mallorder where uid = #{uid}
+    </select>
+</mapper>
