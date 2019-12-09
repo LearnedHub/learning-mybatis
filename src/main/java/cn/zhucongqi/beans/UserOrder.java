@@ -1,5 +1,6 @@
 package cn.zhucongqi.beans;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
  * @modified By：
  * @version:
  */
-public class UserOrder {
+public class UserOrder implements Serializable {
 
     private Long uid;
     private List<MallOrder> orders;

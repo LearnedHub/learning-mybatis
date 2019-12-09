@@ -1,5 +1,7 @@
 package cn.zhucongqi.beans;
 
+import java.io.Serializable;
+
 /**
  * @author ：Jobsz
  * @project ：mybatis-learning-project
@@ -8,7 +10,7 @@ package cn.zhucongqi.beans;
  * @modified By：
  * @version:
  */
-public class User {
+public class User implements Serializable {
 
     private Long id;
     private String name;

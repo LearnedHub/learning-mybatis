@@ -2,6 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.zhucongqi.mapper.OrderMapper">
 
+    <cache/>
+
     <resultMap id="UserOrder" type="userOrder">
         <id column="uid" property="uid"/>
         <collection property="orders" ofType="mallOrder">

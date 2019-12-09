@@ -1,5 +1,6 @@
 package cn.zhucongqi.beans;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Date;
  * @modified By：
  * @version:
  */
-public class MallOrder {
+public class MallOrder implements Serializable {
 
     private Long id;
     private String descr;
